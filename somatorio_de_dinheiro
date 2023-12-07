@@ -1,0 +1,93 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyONH4bvpoeQvG+k2Y/qq2B6",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/casc12/CURsoJavaWEB/blob/master/somatorio_de_dinheiro\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 38,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hI6bC43oOfZG",
+        "outputId": "aa7cc912-8625-4014-b6e6-70edc5afe11c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "O valor do somatório e 12\n"
+          ]
+        }
+      ],
+      "source": [
+        "def dividindo(a, sn = 0):\n",
+        "  #sn = 0\n",
+        "  if( a <= 9999):\n",
+        "    if(a > 999):\n",
+        "      sn += (a //1000)\n",
+        "      a = a % 1000\n",
+        "      return dividindo(a, sn)\n",
+        "\n",
+        "    elif( a > 99):\n",
+        "\n",
+        "      sn += (a // 100)\n",
+        "      a = a % 100\n",
+        "      return dividindo(a, sn)\n",
+        "\n",
+        "    elif( a > 9):\n",
+        "\n",
+        "      sn +=(a //10)\n",
+        "      a = a % 10\n",
+        "      return dividindo(a, sn)\n",
+        "\n",
+        "    elif(a > 0):\n",
+        "\n",
+        "      sn += a\n",
+        "      a = 0\n",
+        "      return dividindo(a, sn)\n",
+        "\n",
+        "    else:\n",
+        "      return sn\n",
+        "\n",
+        "\n",
+        "\n",
+        "  else:\n",
+        "    return 0\n",
+        "\n",
+        "a = 5511\n",
+        "a = dividindo(a)\n",
+        "if( a > 0):\n",
+        "  print(\"O valor do somatório e %d\" % a)\n",
+        "else:\n",
+        "  print(\"O valor informado não está entre 1 e 10000\")"
+      ]
+    }
+  ]
+}
